@@ -25,7 +25,7 @@ BREVO_HEADERS = {
 # ── Health check ──────────────────────────────────────────────────────────────
 @app.route("/", methods=["GET"])
 def health():
-    return jsonify({"status": "Nelson Energy Group API is running"}), 200
+    return jsonify({"status": "Nelson Integrated Oil & Gas API is running"}), 200
 
 
 # ── Newsletter subscription ───────────────────────────────────────────────────
@@ -84,7 +84,7 @@ def contact():
         return jsonify({"error": "Name, email, and phone are required"}), 400
 
     html_body = f"""
-    <h2 style="color:#0A2463;">New Service Request — Nelson Energy Group</h2>
+    <h2 style="color:#0A2463;">New Service Request — Nelson Integrated Oil & Gas</h2>
     <table cellpadding="8" style="border-collapse:collapse;width:100%;font-family:sans-serif;">
       <tr><td style="background:#f4f4f4;font-weight:bold;width:180px;">Service</td>
           <td>{service}</td></tr>
@@ -102,13 +102,13 @@ def contact():
           <td>{details or "—"}</td></tr>
     </table>
     <p style="color:#888;font-size:12px;margin-top:20px;">
-      Sent from the Nelson Energy Group website contact form.
+      Sent from the Nelson Integrated Oil & Gas company website contact form.
     </p>
     """
 
     payload = {
-        "sender":  {"name": "Nelson Energy Group Website", "email": SENDER_EMAIL},
-        "to":      [{"email": CONTACT_EMAIL, "name": "Nelson Energy Group"}],
+        "sender":  {"name": "Nelson Integrated Oil & Gas Company Website", "email": SENDER_EMAIL},
+        "to":      [{"email": CONTACT_EMAIL, "name": "Nelson Integrated Oil & Gas Company"}],
         "replyTo": {"email": email, "name": name},
         "subject": f"[Website Request] {service} — {name}",
         "htmlContent": html_body,
